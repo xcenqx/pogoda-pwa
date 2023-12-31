@@ -1,10 +1,10 @@
 const CACHE_NAME = 'aplikacja-pogodowa';
 const urlsToCache = [
-    '/',
-    '/index.html',
-    '/manifest.json',
-    '/script.js',
-    '/x_ico.png'
+    '',
+    'index.html',
+    'manifest.json',
+    'script.js',
+    'x_ico.png'
 ];
 
 // Instalacja Service Worker'a
