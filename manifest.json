@@ -1,7 +1,7 @@
 {
     "name": "Aplikacja pogodowa PWA",
     "short_name": "Pogoda 24/7",
-    "start_url": "/",
+    "start_url": "/pogoda-pwa/",
     "display": "standalone",
     "background_color": "#171717",
     "description": "Aplikacja pogodowa by XcenqX",
