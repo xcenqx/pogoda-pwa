@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplikacja Pogodowa PWA</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="styles.css">
+    <body>
+        <div class="container">
+            <div class="weather__header">
+                <form class="weather__search">
+                    <input type="text" placeholder="Wyszukaj Pogodę..." class="weather__searchform">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </form> 
+                <div class="weather__units">
+                    <span class="weather_unit_celsius">&#176C</span>
+                    <span class="weather_unit_farenheit" >&#176F</span>
+                </div>
+            </div>
+            <div class="weather__body">
+                <h1 class="weather__city"></h1>
+                <div class="weather__datetime">
+                </div>
+                <div class="weather__forecast"></div>
+                <div class="weather__icon">
+                </div>
+                <p class="weather__temperature">
+                </p>
+                <div class="weather__minmax">
+                    <p>Min: 12&#176</p>
+                    <p>Max: 16&#176</p>
+                </div>
+            </div>
+    
+            <div class="weather__info">
+                <div class="weather__card">
+                    <i class="fa-solid fa-temperature-full"></i>
+                    <div>
+                        <p>Odczuwalna Temp.</p>
+                        <p class="weather__realfeel">18&#176</p>
+                    </div>
+                </div>
+                <div class="weather__card">
+                    <i class="fa-solid fa-droplet"></i>
+                    <div>
+                        <p>Wilgotność</p>
+                        <p class="weather__humidity">18&#176</p>
+                    </div>
+                </div>
+                <div class="weather__card">
+                    <i class="fa-solid fa-wind"></i>
+                    <div>
+                        <p>Wiatr</p>
+                        <p class="weather__wind">18&#176</p>
+                    </div>
+                </div>
+                <div class="weather__card">
+                    <i class="fa-solid fa-gauge-high"></i>
+                    <div>
+                        <p>Ciśnienie</p>
+                        <p class="weather__pressure">18&#176</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://kit.fontawesome.com/a692e1c39f.js" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('service-worker.js')
+                .then(registration => {
+                    console.log('Service Worker zarejestrowany:', registration);
+                })
+                .catch(error => {
+                    console.log('Błąd rejestracji Service Worker:', error);
+                });
+        }
+    </script>
+</body>
+</html>
