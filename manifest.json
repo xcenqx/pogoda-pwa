@@ -1,5 +1,7 @@
 {
     "name": "Aplikacja pogodowa PWA",
+    "author": "XcenqX Software",
+    "version": "1.0",
     "short_name": "Pogoda 24/7",
     "start_url": "/pogoda-pwa/",
     "display": "standalone",
