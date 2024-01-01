@@ -7,6 +7,9 @@
     "display": "standalone",
     "background_color": "#171717",
     "description": "Aplikacja pogodowa by XcenqX",
+    "permissions": [
+        "geolocation"
+      ],
     "icons": [
         {
             "src": "ico.png",
