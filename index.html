@@ -77,6 +77,10 @@
                     console.log('Błąd rejestracji Service Worker:', error);
                 });
         }
+         window.addEventListener('load', () => {
+            getLocation();
+        });
+
     </script>
 </body>
 </html>
