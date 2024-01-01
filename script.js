@@ -1,3 +1,5 @@
+
+
 let units = "metric";
 const API_KEY = '64f60853740a1ee3ba20d0fb595c97d5'
 // Selectors
@@ -66,14 +68,26 @@ function displayWeatherData(data) {
     weather__pressure.innerHTML = `${data.main.pressure} hPa`
 }
 
-function displayDefaultWeather() {
-    city.innerHTML = "Lublin, Poland";
-    // ... (rest of the code to display weather data for Lublin)
+function displayDefaultWeather(MyData) {
+    let forecast = translateWeatherDescription(MyData.weather[0].main);
+    city.innerHTML = `${MyData.name}, ${convertCountryCode(MyData.sys.country)}`
+    datetime.innerHTML = convertTimeStamp(MyData.dt, MyData.timezone); 
+    weather__forecast.innerHTML = `<p>${forecast}`
+    weather__temperature.innerHTML = `${MyData.main.temp.toFixed()}&#176`
+    weather__icon.innerHTML = `   <img src="http://openweathermap.org/img/wn/${MyData.weather[0].icon}@4x.png" />`
+    weather__minmax.innerHTML = `<p>Min: ${MyData.main.temp_min.toFixed()}&#176</p><p>Max: ${MyData.main.temp_max.toFixed()}&#176</p>`
+    weather__realfeel.innerHTML = `${MyData.main.feels_like.toFixed()}&#176`
+    weather__humidity.innerHTML = `${MyData.main.humidity}%`
+    weather__wind.innerHTML = `${MyData.wind.speed} ${units === "imperial" ? "mph": "m/s"}` 
+    weather__pressure.innerHTML = `${MyData.main.pressure} hPa`
 }
 function getWeatherForCity(cityName) {
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}&units=${units}`)
         .then(res => res.json())
-        .then(data => displayWeatherData(data))
+        .then(data => {
+            displayWeatherData(data);
+            localStorage.setItem('myData', JSON.stringify(data));
+        })
         .catch(error => {
             console.error("Error fetching weather data:", error);
             displayDefaultWeather();
@@ -82,7 +96,10 @@ function getWeatherForCity(cityName) {
 function getWeatherForLocation(lat, lon) {
     fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=${units}`)
         .then(res => res.json())
-        .then(data => displayWeatherData(data))
+        .then(data => {
+            displayWeatherData(data);
+            localStorage.setItem('myData', JSON.stringify(data));
+        })
         .catch(error => {
             console.error("Error fetching weather data:", error);
             displayDefaultWeather();
@@ -140,7 +157,9 @@ document.querySelector(".weather_unit_farenheit").addEventListener('click', () =
         getWeatherForCity(city.innerHTML.split(",")[0]);
     }
 });
-
+const date = JSON.parse(localStorage.getItem('myData'));
+console.log(date);
 document.addEventListener('DOMContentLoaded', () => {
     getLocation();
 });
+
