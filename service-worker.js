@@ -2,7 +2,6 @@ const CACHE_NAME = 'aplikacja-pogodowa';
 const urlsToCache = [
     '',
     'index.html',
-    'manifest.json',
     'script.js',
     'styles.js',
     'service-worker.js',
