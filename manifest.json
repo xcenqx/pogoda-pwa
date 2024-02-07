@@ -2,7 +2,7 @@
     "lang": "pl-PL",
     "name": "Aplikacja pogodowa",
     "author": "XcenqX Software",
-    "version": "1.0.2 beta",
+    "version": "1.0.3 beta",
     "short_name": "Pogoda 24/7 beta",
     "start_url": "/pogoda-pwa/",
     "display": "standalone",
